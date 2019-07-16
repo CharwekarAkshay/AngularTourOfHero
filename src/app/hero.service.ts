@@ -85,9 +85,9 @@ export class HeroService {
       return of([]);
     }
 
-    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${this.term}`)
+    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`)
     .pipe(
-      tap(_ => this.log(`Found hero mapping "${this.term}"`)),
+      tap(_ => this.log(`Found hero mapping "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeros',[]))
     );
   }
